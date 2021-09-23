@@ -1,4 +1,4 @@
-## Full Python Linter check ##
+## Python Linter ##
 name: all-lints
 
 on: [push]
