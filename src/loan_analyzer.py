@@ -1,4 +1,5 @@
-# coding: utf-8
+#### Loan Analyzer Program ####
+
 import csv
 from pathlib import Path
 
@@ -89,15 +90,7 @@ Perform financial calculations using functions.
     a. Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 """
 
-# Given the following loan data, you will need to calculate the present value for the loan
-
-# @TODO: Define a new function that will be used to calculate present value.
-#    This function should include parameters for `future_value`, `remaining_months`, and the `annual_discount_rate`
-#    The function should return the `present_value` for the loan.
-
-# @TODO: Use the function to calculate the present value of the new loan given below.
-#    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
-# YOUR CODE HERE!
+# Defining a new function that will be used to calculate present value.
 
 new_loan = {
     "loan_price": 800,
@@ -183,12 +176,44 @@ Output this list of inexpensive loans to a csv file
 
 """
 
-# Set the output header
+# Setting the output header
 header = ["loan_price", "remaining_months", "repayment_interval", "future_value"]
 
-# Set the output file path
-output_path = Path("inexpensive_loans.csv")
+# Setting the output file path
+csvpath = Path("src/inexpensive_loans.csv")
 
-# @TODO: Use the csv library and `csv.writer` to write the header row
+# Using the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
-# YOUR CODE HERE!
+
+print("Writing the inexpensive loans data to a CSV file for the business analysts team...")
+
+with open(csvpath, "w", newline="") as csvfile:
+    csvwriter = csv.writer(csvfile)
+    csvwriter.writerow(header)
+
+    for row in inexpensive_loans:
+        csvwriter.writerow(row.values())
+
+#####                                                #####
+##### Extra - Writing a CSV file for expensive loans #####
+
+# Setting the output header
+header = ["loan_price", "remaining_months", "repayment_interval", "future_value"]
+
+# Setting the output file path
+csvpath = Path("src/expensives_loans.csv")
+
+# Using the csv library and `csv.writer` to write the header row 
+# and each row of `loan.values()` from the `expensive_loans` list.
+
+print("Writing the expensive loans data to a CSV file for the business analysts team...")
+
+with open(csvpath, "w", newline="") as csvfile:
+    csvwriter = csv.writer(csvfile)
+    csvwriter.writerow(header)
+
+    for row in expensive_loans:
+        csvwriter.writerow(row.values())
+
+############################################################
+############### End of Loan Analyzer Program ###############
