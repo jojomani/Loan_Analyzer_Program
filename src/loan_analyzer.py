@@ -153,18 +153,20 @@ loans = [
     },
 ]
 
-# @TODO: Create an empty list called `inexpensive_loans`
+# Creating empty lists for `inexpensive_loans` and 'expensive_loans'
 inexpensive_loans = []
+expensive_loans = []
 
-# @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
+# Looping through all the loans and append any that cost $500 or less to the `inexpensive_loans` list and above $500 to the 'expensive_loans' list
+
 for loan_price in loans:
-    if loan_price < 500:
-        loan_price.append(inexpensive_loans)
-    print(f"Here is the list of inexpensive loans.")
+    if loan_price["loan_price"] <= int(500):
+        inexpensive_loans.append(loan_price)
+    elif loan_price["loan_price"] > int(500):
+        expensive_loans.append(loan_price)
 
-
-# @TODO: Print the `inexpensive_loans` list
-# YOUR CODE HERE!
+print(f"These loans are expensive {expensive_loans}")
+print(f"Here is the list of inexpensive loans {inexpensive_loans}")
 
 
 """Part 5: Save the results.
